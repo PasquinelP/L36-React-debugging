@@ -12,7 +12,7 @@ Om een applicatie te installeren neem de volgende stappen:
 - in deze nieuwe directory doe je npm install en dan npm start
 - je kunt de applicatie nu open op http://localhost:3000
 
-# En het probleem is....
+## En het probleem is....
 
 1. Bug exercise 1: als het woord goed geraden is, verlies je alsnog
 2. Bug exercise 2: we kunnen geen letter raden
