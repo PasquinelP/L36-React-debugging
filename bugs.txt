@@ -1,0 +1,39 @@
+Bug exercise 1: 
+typo in props name in const gameOver in App.js, wordGuesed should be wordGuessed
+
+Bug excercise 2: 
+typo in guessLetterHandler in AppContainer in if statement on line 50:
+[...this.state.guesedLetters] should be [...this.state.guessedLetters] 
+
+Bug exercise 3:
+in const wordGuessed in let remaining in App.js on line 18 guessedLetters.includes(letter) is allready true. Has to be !guessedLetters.includes(letter)
+
+Bug exercise 4:
+In AppContainer in guessLetterHandler function there is no check that the current letter input is greater then 0. So the function needs to be in an if statement to check for this:
+if (this.state.currentChosenLetter.length > 0)
+
+Bug exercise 5:
+In App.js in function const isGameOver on line 30 in if statement getWrongLetters length needs to be >= to maxGuesses
+
+Bug excercise 6:
+check where guessed letter gets executed and set and make sure that the current guessed letter is not in the allready guessed letters state and make sure that new guessed letter only gets stored if this is true.
+guessedLetter is set in guessLetterHandler function and becomes somthing like:
+guessLetterHandler = event => {
+  guessLetterHandler = event => {
+    const inputGiven = this.state.currentChosenLetter.length > 0;
+    if (inputGiven) {
+      const newChosenLetter = !this.state.guessedLetters.includes(this.state.currentChosenLetter);
+      if (newChosenLetter) {
+      const newGuessedLetters = [...this.state.guessedLetters];
+      newGuessedLetters.push(this.state.currentChosenLetter);
+      this.setState({
+        guessedLetters: newGuessedLetters
+      });
+      } else {
+        alert("You allready used this letter. Try another one");
+      }
+    }
+    this.setState({ currentChosenLetter: "" });
+    event.preventDefault();
+  };
+
